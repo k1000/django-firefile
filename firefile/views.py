@@ -27,7 +27,7 @@ def get_respond(request):
         if action:
             result = authorizeAction(request);
             
-            if !request.FILES : return endError("no_file_specified")
+            if not request.FILES : return endError("no_file_specified")
             sfile = base64.b64decode(request.FILES['file'])
             if substr(sfile, -4) != ".css": return endError("invalid_file_extension")
 
@@ -46,7 +46,7 @@ def get_respond(request):
             
             return HttpResponse(response)
             
-    return HttpResponse(create_message_for_client( ACCESS_GRANTED ))
+    return HttpResponse("<h1>Firefile</h1>")
 
 
 
